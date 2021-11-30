@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "687224823543",
+    "project_id": "increment-app-4f2af",
+    "storage_bucket": "increment-app-4f2af.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687224823543:android:c077cd284c630a18f93df2",
+        "android_client_info": {
+          "package_name": "com.example.incrementapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "687224823543-uefc5l1ilvtc243bke6apobpqrtk9mq4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.incrementapp",
+            "certificate_hash": "5402c91623169ee8be3adfc570570832e8e2dbcb"
+          }
+        },
+        {
+          "client_id": "687224823543-uuejhce0uf8dvga72rpgq6ps3labfugi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBf7s5HiA5i2_EdsTuG54SGKnDM1UzDcK0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "687224823543-uuejhce0uf8dvga72rpgq6ps3labfugi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

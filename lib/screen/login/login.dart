@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, unused_local_variable, must_be_immutable, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, unused_local_variable, must_be_immutable, prefer_const_literals_to_create_immutables, avoid_print
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +10,10 @@ import 'package:incrementapp/media.dart';
 import 'package:incrementapp/screen/home/home.dart';
 import 'package:incrementapp/screen/login/Controller.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
+import 'package:incrementapp/screen/login/services/EmailPassword.dart';
+import 'package:incrementapp/screen/login/services/facebook.dart';
+import 'package:incrementapp/screen/login/services/googlogin.dart';
+import 'package:incrementapp/screen/registation/registation.dart';
 
 class Login extends StatelessWidget {
   Login({Key? key}) : super(key: key);
@@ -47,6 +51,7 @@ class Login extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(top: 80.0),
                   child: TextFormField(
+                    textInputAction: TextInputAction.next,
                     controller: emailtextEditingController,
                     style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
@@ -130,9 +135,14 @@ class Login extends StatelessWidget {
                         'Don’t have an account? ',
                         style: Style().logh2stylegreay,
                       ),
-                      Text(
-                        ' Register',
-                        style: Style().logh2style,
+                      InkWell(
+                        onTap:(){
+                        Navigator.pushNamed(context, Registation.name);
+                        },
+                        child: Text(
+                          ' Register',
+                          style: Style().logh2style,
+                        ),
                       )
                     ],
                   ),
@@ -142,7 +152,14 @@ class Login extends StatelessWidget {
                 //
                 InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, Home.name);
+                      // SpinKitRotatingCircle(
+                      //   color: Colors.white,
+                      //   size: 50.0,
+                      // );
+                      Emailpassword().login(emailtextEditingController.text.toString().trim(),
+                       passwordtextEditingController.text.toString().trim());
+                      Navigator.pushNamedAndRemoveUntil(context,
+                              Home.name, (Route<dynamic> route) => false);
                   },
                   child: Container(
                     width: MediaQuerypage.screenWidth,
@@ -161,36 +178,46 @@ class Login extends StatelessWidget {
                 ),
                 //
                 // facebook buttom
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                  child: Container(
-                    width: MediaQuerypage.screenWidth,
-                    height: MediaQuerypage.screenHeight! / 14,
-                    decoration: BoxDecoration(
-                      color: Color(0xFF1E4E87),
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Facebook',
-                        style: Style().logh2style,
+                InkWell(
+                  onTap:(){
+                    signInWithFacebook();
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                    child: Container(
+                      width: MediaQuerypage.screenWidth,
+                      height: MediaQuerypage.screenHeight! / 14,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF1E4E87),
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Facebook',
+                          style: Style().logh2style,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 //
                 // google buttom
-                Container(
-                  width: MediaQuerypage.screenWidth,
-                  height: MediaQuerypage.screenHeight! / 14,
-                  decoration: BoxDecoration(
-                    color: Color(0xFF18A82E),
-                    borderRadius: BorderRadius.circular(16.0),
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Google',
-                      style: Style().logh2style,
+                InkWell(
+                  onTap:(){
+                    GoogleLogin().signInWithGoogle();
+                  },
+                  child: Container(
+                    width: MediaQuerypage.screenWidth,
+                    height: MediaQuerypage.screenHeight! / 14,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF18A82E),
+                      borderRadius: BorderRadius.circular(16.0),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Google',
+                        style: Style().logh2style,
+                      ),
                     ),
                   ),
                 ),
