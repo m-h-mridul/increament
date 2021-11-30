@@ -51,4 +51,7 @@ class MoviseController extends GetxController {
     print('all episodes tv series');
     super.onInit();
   }
+   searchlist(String name){
+     
+   }
 }
