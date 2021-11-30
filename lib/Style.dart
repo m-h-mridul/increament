@@ -27,12 +27,22 @@ class Style {
       color: Color(0xFF707070), fontSize: 18, fontFamily: 'Roboto-Bold');
   // for stack positon
   var position = scaleX(
-    MediaQuerypage.smallSizeWidth!*5,
+    MediaQuerypage.smallSizeWidth!*2,
+    MediaQuerypage.screenWidth,
+    MediaQuerypage.screenWidth! / 1.5,
+  );
+   var rightposition = scaleX(
+    MediaQuerypage.smallSizeWidth!*9,
+    MediaQuerypage.screenWidth,
+    MediaQuerypage.screenWidth! / 1.5,
+  );
+  var starbottomposition = scaleX(
+    MediaQuerypage.smallSizeWidth!*2,
     MediaQuerypage.screenWidth,
     MediaQuerypage.screenWidth! / 1.5,
   );
   var starposition=scaleX(
-    MediaQuerypage.smallSizeWidth!*15,
+    MediaQuerypage.smallSizeWidth!*12,
     MediaQuerypage.screenWidth,
     MediaQuerypage.screenWidth! / 1.5,
   );

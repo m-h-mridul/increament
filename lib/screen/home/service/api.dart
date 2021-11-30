@@ -1,15 +1,38 @@
-// ignore_for_file:, unused_local_variable, unnecessary_new
-import 'package:dio/dio.dart';
+// ignore_for_file:, unused_local_variable, unnecessary_new, unnecessary_brace_in_string_interps
 import 'package:http/http.dart' as http;
 
 class Api {
-  Future<dynamic> fetchmovises() async {
-    const String baseURL = 'https://api.tvmaze.com/shows/82';
+//  some movise
+  Future<dynamic> fetchmovises(String n) async {
+    String baseURL = 'https://api.tvmaze.com/shows/';
+    var url = Uri.parse(baseURL + n);
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      // print(response.body);
+      return response.body;
+    } else {
+      throw Exception('Failed to load post: ');
+    }
+  }
+  // popular series
+   Future<dynamic> popularseries(String n) async {
+    String baseURL = 'https://api.tvmaze.com/singlesearch/shows?q=';
+    var url = Uri.parse(baseURL + n);
+    final response = await http.get(url);
+    if (response.statusCode == 200) {
+      // print(response.body);
+      return response.body;
+    } else {
+      throw Exception('Failed to load post: ');
+    }
+  }
+  //
+  Future<dynamic> allepiso() async {
+    String baseURL = 'https://api.tvmaze.com/shows/1/episodes';
     var url = Uri.parse(baseURL);
     final response = await http.get(url);
-    // var response = await Dio().get(baseURL);
     if (response.statusCode == 200) {
-      print(response.body);
+      // print(response.body);
       return response.body;
     } else {
       throw Exception('Failed to load post: ');
