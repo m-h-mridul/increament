@@ -4,7 +4,6 @@
 
 // ignore_for_file: file_names
 
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 PtvseriesModel pokedexFromJson(String str) => PtvseriesModel.fromJson(json.decode(str));

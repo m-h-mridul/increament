@@ -2,9 +2,9 @@
 //
 //     final pokedex = pokedexFromJson(jsonString);
 
-// ignore_for_file: prefer_if_null_operators
+// ignore_for_file: prefer_if_null_operators, unnecessary_null_comparison, prefer_null_aware_operators
 
-import 'package:meta/meta.dart';
+
 import 'dart:convert';
 
 List<Pokedex> pokedexFromJson(String str) => List<Pokedex>.from(json.decode(str).map((x) => Pokedex.fromJson(x)));
@@ -218,10 +218,10 @@ class Rating {
         required this.average,
     });
 
-    int average;
+    double average;
 
     factory Rating.fromJson(Map<String, dynamic> json) => Rating(
-        average: json["average"] == null ? null : json["average"],
+        average: json["average"] == null ? 0.0 : json["average"],
     );
 
     Map<String, dynamic> toJson() => {

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, invalid_use_of_protected_member, avoid_print
+// ignore_for_file: prefer_const_constructors, invalid_use_of_protected_member, avoid_print, must_be_immutable
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
